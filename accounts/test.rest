@@ -1,0 +1,59 @@
+POST http://127.0.0.1:8000/user/register/
+Content-Type: application/json
+
+{
+    "email": "dev3@gmail.com",
+    "user_name": "dev3",
+    "password": "test1@gmail.com",
+    "password2": "test1@gmail.com",
+    "bio": "test3"
+}
+###
+POST http://127.0.0.1:8000/user/login/
+Content-Type: application/json
+
+{
+    "email": "dev3@gmail.com",
+    "password": "test1@gmail.com"
+}
+
+###
+GET http://127.0.0.1:8000/user/action?
+Authorization: Token 8e295c61b60553b189a86c6cc02fe486d404c7a7
+###
+GET http://127.0.0.1:8000/user/get_profile?profile=dev1
+Authorization: Token 8e295c61b60553b189a86c6cc02fe486d404c7a7
+
+###
+GET http://127.0.0.1:8000/user/actions?action=follow&followee=dev3
+Authorization: Token 3e8f1e1f41c838939b32444266a9f5b3f849f498
+###
+POST http://127.0.0.1:8000/api/tweet/
+Content-Type: application/json
+Authorization: Token 3e8f1e1f41c838939b32444266a9f5b3f849f498
+
+{
+    "content": "test3"
+}
+###
+GET http://127.0.0.1:8000/api/tweet/
+Authorization: Token 3e8f1e1f41c838939b32444266a9f5b3f849f498
+###
+POST http://127.0.0.1:8000/api/tweet/2/toggle_like/
+Content-Type: application/json
+Authorization: Token 8e295c61b60553b189a86c6cc02fe486d404c7a7
+
+{
+    "action" : "like"
+}
+###
+POST http://127.0.0.1:8000/api/tweet/3/retweet/
+Content-Type: application/json
+Authorization: Token 8e295c61b60553b189a86c6cc02fe486d404c7a7
+
+{
+    "content": "test-retweet2"
+}
+###
+GET http://127.0.0.1:8000/api/feed
+Authorization: Token 3e8f1e1f41c838939b32444266a9f5b3f849f498
